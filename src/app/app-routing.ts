@@ -11,7 +11,6 @@ import {CinemaComponent} from './cinema/cinema.component';
 const  routes: Routes = [
   { path: 'hello', component: HelloworldComponent},
   { path: 'calc', component: CalculatorComponent},
-  {path: 'question', component: QuestionComponent},
   {path: 'feedback', component: FeedbackComponent},
   {path: 'registration', component: RegistrationformComponent},
   {path: 'currency', component: CurrencyComponent},
