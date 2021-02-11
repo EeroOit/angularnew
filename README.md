@@ -1,2 +1,1 @@
-# angularnew
-angular
+# angular-harjoitukset
