@@ -1,0 +1,123 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Template-driven Form Example</h1>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" [mustMatch]="['password', 'confirmPassword']" novalidate>
+      <div class="form-group">
+        <label for="firstName">Name field</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required minlength="2"  />
+        <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+          <div *ngIf="firstName.errors.required">First Name is required</div>
+          Min. 2 characters req.
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required minlength="2"  />
+        <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+          <div *ngIf="lastName.errors.required">Last Name is required</div>
+          Min. 2 characters req.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" id="id" name="id" [(ngModel)]="model.id" #id="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && id.invalid }" required pattern="^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])([5-9]\d\+|\d\d-|[01]\dA)\d{3}[\dA-Z]$"  />
+        <div *ngIf="f.submitted && id.invalid" class="invalid-feedback">
+          <div *ngIf="id.errors.required">ID is required.</div>
+          ID must be in standard finnish ID format, for example "120464-126J".
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="model.username" #username="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" required minlength="6" />
+        <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+          <div *ngIf="username.errors.required">Username is required.</div>
+          Min. 6 characters req.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" name="email:" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}$" />
+        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+          Minimum ten characters, at least one uppercase letter, one lowercase letter and one number required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required />
+        <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
+          <div *ngIf="confirmPassword.errors.required">Confirm Password is required</div>
+          <div *ngIf="confirmPassword.errors.mustMatch">Passwords must match</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+       <div> <label for="confirmTerms"></label></div>
+        <input type="checkbox" class="checkbox" id="confirmTerms" name="confirmTerms" [(ngModel)]="model.confirmTerms" #confirmTerms="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmTerms.invalid }" required />
+        I accept the terms of services
+        <div *ngIf="f.submitted && confirmTerms.invalid" class="invalid-feedback">
+          <div *ngIf="confirmTerms.errors.required">Required</div>
+        </div>
+      </div>
+
+
+
+         <button type="submit"  ng-disabled="!(check)"  [disabled]="!confirmTerms.valid"  class="btn btn-success" >register </button>
+    </form>
+
+
+
+
+
+
+  </div>
+
+<div [hidden]="!submitted">
+     <h2>You submitted the following</h2>
+      <div class="row">
+        <div class="col-xs-3">Fist name: </div>
+        <div class="col-xs-9">{{model.firstName}}</div>
+        </div>
+  <div class="row">
+    <div class="col-xs-3">Last name: </div>
+    <div class="col-xs-9">{{model.lastName}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">id: </div>
+    <div class="col-xs-9">{{model.id}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">username: </div>
+    <div class="col-xs-9">{{model.username}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">email: </div>
+    <div class="col-xs-9">{{model.email}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">password: </div>
+    <div class="col-xs-9">{{model.password}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">confirmPassword: </div>
+    <div class="col-xs-9">{{model.confirmPassword}}</div>
+  </div>
+<br>
+  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>
+</div>
+

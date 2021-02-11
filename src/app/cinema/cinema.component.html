@@ -1,0 +1,15 @@
+<div class="container">
+  <table class="table table-bordered table-hover">
+
+    <h2>Finnkino uutisia</h2>
+    <tr>
+      <th>Uutinen</th>
+      <th>Linkki</th>
+    </tr>
+    <tr *ngFor="let item of xmlItems">
+      <td>{{item.HTMLLead}}</td>
+      <td>{{item.ArticleURL}}</td>
+
+    </tr>
+  </table>
+</div>

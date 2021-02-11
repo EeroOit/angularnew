@@ -1,0 +1,16 @@
+
+
+<div class="question-group">
+  <mat-card>
+  <option *ngFor="let quest of questions" [value]="quest.id">
+
+    {{quest.curName}}
+    <mat-slider [(ngModel)]="myFeedback.id" (ngModelChange)="onInputChange($event)" min="1" max="5"></mat-slider>
+    <th>{{getAccountById(myFeedback.id).curName}}</th>
+
+
+  </option>
+    <button class="button" mat-raised-button color="primary"> Lähetä</button>
+
+  </mat-card>
+</div>
