@@ -6,7 +6,6 @@ import { HelloworldComponent } from './helloworld/helloworld.component';
 import {RouterModule} from '@angular/router';
 import {AppRouting} from './app-routing';
 import { CalculatorComponent } from './calculator/calculator.component';
-import { QuestionComponent } from './question/question.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCardModule, MatSliderModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +29,6 @@ import { CinemaComponent } from './cinema/cinema.component';
     AppComponent,
     HelloworldComponent,
     CalculatorComponent,
-    QuestionComponent,
     FeedbackComponent,
     RegistrationformComponent,
     MustMatchDirective,

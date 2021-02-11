@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HelloworldComponent} from './helloworld/helloworld.component';
 import {CalculatorComponent} from './calculator/calculator.component';
-import {QuestionComponent} from './question/question.component';
 import {FeedbackComponent} from './feedback/feedback.component';
 import {RegistrationformComponent} from './registrationform/registrationform.component';
 import {CurrencyComponent} from './currency/currency.component';
