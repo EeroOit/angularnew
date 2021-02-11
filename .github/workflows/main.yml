@@ -43,4 +43,10 @@ jobs:
       - name: Download build
         uses: actions/download-artifact@v1
         with:
-          name: deploy_dist
+           name: deploy_dist
+      - name: Deploy to GitHub Pages
+        uses: EeroOit/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.API_KEY }}
+          BRANCH: gh-pages
+          FOLDER: deploy_dist/angularnew
